@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export const MainContainerStyled = styled.main`
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   height: 100%;
   margin: auto;
 
