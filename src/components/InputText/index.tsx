@@ -1,9 +1,9 @@
 import { KeyboardEvent, ReactHTMLElement, useState } from "react";
 import { InputTextContainerStyled, InputTextStyled } from "./InputText.styled";
-
+import type { objectType } from "../../App";
 
 interface InputTextType {
-  handleSetTasksValue: ({}) => void
+  handleSetTasksValue: ({}:objectType) => void
   setIndexId: () => number
   placeholder: string
   maxLength: number;

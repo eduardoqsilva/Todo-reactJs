@@ -26,6 +26,7 @@ export const InputTextStyled = styled.input<InputTextStyledType>`
 
 export const InputTextContainerStyled = styled.div`
   width: 100%;
+  margin-bottom: 2rem;
 
   & p {
     display: none;

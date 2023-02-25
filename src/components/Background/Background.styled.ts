@@ -8,7 +8,7 @@ interface BackgroundStyledType {
 
 export const BackgroundStyled = styled.div<BackgroundStyledType>`
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: ${(props) => props.theme.backgroundColor};
     padding: 0 1rem 1rem 1rem;
 
