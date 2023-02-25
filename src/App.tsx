@@ -31,7 +31,7 @@ function App() {
         <Main>
           <>
           <Header handleSetToggleTheme={handleSetToggleTheme} theme={theme}/>
-          <InputText handleSetTasksValue={handleSetTasksValue}/>
+          <InputText handleSetTasksValue={handleSetTasksValue} placeholder="Crie uma nova tarefa!"/>
           {console.log(tasks)}
           </>
         </Main>

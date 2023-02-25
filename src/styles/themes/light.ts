@@ -1,5 +1,7 @@
 export const lightTheme = {
-  textColor: '#000',
+  textColor: '#262626',
   backgroundColor: '#f8f7fa',
-  inputColor: '#fff'
+  inputColor: '#fff',
+  placeholderColor: '#65677e',
+  alertColor: '#e93e36'
 }
