@@ -24,6 +24,9 @@ function App() {
       return [...prevTasks, value];
     })
   }
+  function setIndexId() {
+    return (tasks.length)
+  }
 
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
@@ -31,7 +34,7 @@ function App() {
         <Main>
           <>
           <Header handleSetToggleTheme={handleSetToggleTheme} theme={theme}/>
-          <InputText handleSetTasksValue={handleSetTasksValue} placeholder="Crie uma nova tarefa!"/>
+          <InputText setIndexId={setIndexId} maxLength={25} handleSetTasksValue={handleSetTasksValue} placeholder="Crie uma nova tarefa!"/>
           {console.log(tasks)}
           </>
         </Main>
