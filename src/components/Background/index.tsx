@@ -3,12 +3,11 @@ import { BackgroundStyled } from "./Background.styled";
 
 interface BackgroundType {
   children: ReactNode
-  imgUrl: string
   theme: boolean
 }
-export function Background({ children, imgUrl, theme }:BackgroundType) {
+export function Background({ children, theme }:BackgroundType) {
   return (
-    <BackgroundStyled backgroundUrl={imgUrl} thems={theme}>
+    <BackgroundStyled thems={theme}>
       {children}
     </BackgroundStyled>
   )

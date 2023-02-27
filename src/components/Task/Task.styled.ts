@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import icon from "../../assets/check/check.svg"
+
+import iconCheck from "../../assets/check/check.svg"
+import iconDelete from "../../assets/delete/delete.svg"
+import iconDelete2 from "../../assets/delete/delete2.svg"
 
 interface TaskStyledType {
   completed: boolean
@@ -24,6 +27,7 @@ export const TaskStyled = styled.div<TaskStyledType>`
   margin-bottom: 1rem;
 
   & > p {
+    flex-grow: 1;
     ${(props) => props.completed 
       ? 
       `text-decoration: line-through;
@@ -58,9 +62,31 @@ export const CheckStyled = styled.input`
       
       border-radius: 50%;
       background-color: #1da1f2;
-      background-image: url(${icon});
+      background-image: url(${iconCheck});
       background-position: center;
       background-repeat: no-repeat;
     }
+  }
+`
+
+export const TaskButtomDeleteStyled =  styled.button`
+  background: transparent;
+  border: none;
+  padding: 0.8rem;
+  margin-left: 1rem;
+
+  background-image: url(${iconDelete});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.1s ease-in-out;
+
+  :hover {
+    background-image: url(${iconDelete2});
+    transform: scale(1.02);
+  }
+  :active {
+    background-image: url(${iconDelete2});
+    transform: scale(0.90);
   }
 `
