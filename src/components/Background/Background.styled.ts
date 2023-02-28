@@ -17,8 +17,8 @@ export const BackgroundStyled = styled.div<BackgroundStyledType>`
       content: '';
       display: block;
       width: 100%;
-      height: 30%;
       min-height: 280px;
+      height: 30%;
 
       position: absolute;
       top: 0;

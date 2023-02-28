@@ -13,7 +13,7 @@ export const StatusContainerStyled = styled.div<StatusType>`
 
   > span {
     font-size: 1rem;
-    color: #e6e6e6;
+    color: lightgreen;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
   }
@@ -22,6 +22,7 @@ export const StatusContainerStyled = styled.div<StatusType>`
     ::after {
       content: "${props => props.tasksNumber}";
       display: inline-block;
+      background: ${(props) => props.theme.placeholderColor};
       background: ${(props) => props.theme.placeholderColor};
       padding: 0.3rem 0.6rem;
       border-radius: 20px;
