@@ -3,9 +3,8 @@ import styled from "styled-components"
 
 export const MainContainerStyled = styled.main`
   width: 100%;
-  height: 100%;
   max-width: 700px;
-  height: 100%;
+  min-height: calc(100vh - 1rem);
   margin: auto;
 
   color: white; 

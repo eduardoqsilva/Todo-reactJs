@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { Background } from "./components/Background"
+import { Empty } from "./components/Empty"
 import { Header } from "./components/Header"
 import { InputText } from "./components/InputText"
 import { Main } from "./components/Main"
@@ -106,6 +107,7 @@ function App() {
                 )
               })
             }
+            <Empty tasksNumber={tasks.length}/>
           </>
         </Main>
       </Background>
