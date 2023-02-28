@@ -22,6 +22,9 @@ export const InputTextStyled = styled.input<InputTextStyledType>`
   ::placeholder {
     color: ${(props) => props.theme.placeholderColor}
   }
+  @media(max-width: 600px) {
+    font-size: 1rem;
+  }
 `
 
 export const InputTextContainerStyled = styled.div`

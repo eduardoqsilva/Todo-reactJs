@@ -25,9 +25,15 @@ export const TaskStyled = styled.div<TaskStyledType>`
   font-weight: 400;
   color: ${(props) => props.theme.textColor};
   margin-bottom: 1rem;
-
-  & > p {
+ 
+  .textContainer {
     flex-grow: 1;
+  }
+  & .textContainer > p {
+    overflow-x: hidden;
+    max-width: 90%;
+    text-overflow: ellipsis;
+
     ${(props) => props.completed 
       ? 
       `text-decoration: line-through;
@@ -35,11 +41,19 @@ export const TaskStyled = styled.div<TaskStyledType>`
       : '' 
     }
   }
+
+  @media(max-width: 600px) {
+    font-size: 1rem;
+    & .textContainer > p {
+      max-width: 90%;
+    }
+  }
 `
 export const CheckStyled = styled.input`
   appearance: none;
   width: 1.8rem;
   height: 1.8rem;
+  flex-shrink: 0;
   background-color: transparent;
   border: 2px solid ${(props) => props.theme.placeholderColor};
   border-radius: 50%;
@@ -72,8 +86,9 @@ export const CheckStyled = styled.input`
 export const TaskButtomDeleteStyled =  styled.button`
   background: transparent;
   border: none;
-  padding: 0.8rem;
-  margin-left: 1rem;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
 
   background-image: url(${iconDelete});
   background-position: center;
@@ -83,7 +98,7 @@ export const TaskButtomDeleteStyled =  styled.button`
 
   :hover {
     background-image: url(${iconDelete2});
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
   :active {
     background-image: url(${iconDelete2});
