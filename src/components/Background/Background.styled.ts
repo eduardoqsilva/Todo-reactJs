@@ -18,6 +18,7 @@ export const BackgroundStyled = styled.div<BackgroundStyledType>`
       display: block;
       width: 100%;
       height: 30%;
+      min-height: 280px;
 
       position: absolute;
       top: 0;
@@ -36,6 +37,5 @@ export const BackgroundStyled = styled.div<BackgroundStyledType>`
       filter: saturate(1);
 
       transition: all 0.1s ease-in;
-      /* filter: grayscale(1); */
     }
 `
