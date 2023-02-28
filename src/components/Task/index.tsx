@@ -6,7 +6,7 @@ interface TaskType {
   text: string,
   completed: boolean
   
-  handleSetCompleted: (id:number) => void
+  handleSetCompleted: (id:number, completed:boolean) => void
   handleDeletetask: (id:number) => void
 }
 
@@ -17,10 +17,12 @@ export function Task({ id, text, completed, handleSetCompleted, handleDeletetask
   useEffect(() => {
     setCheck(completed)
   },[])
+  useEffect(() => {
+    handleSetCompleted(id, check)
+  },[check])
 
   function handleSetCheck() {
     setCheck((prev) => !prev)
-    handleSetCompleted(id)
   }
   function handleDeleteItem() {
     console.log('apagou')
@@ -31,7 +33,9 @@ export function Task({ id, text, completed, handleSetCompleted, handleDeletetask
   return (
     <TaskStyled completed={check}>
       <CheckStyled type='checkbox' checked={check} onChange={handleSetCheck}/>
-      <p>{text}</p>
+        <div className="textContainer">
+          <p>{text}</p>
+        </div>
       <TaskButtomDeleteStyled onClick={handleDeleteItem}/>
     </TaskStyled>
   )

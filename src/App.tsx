@@ -35,8 +35,18 @@ function App() {
     localStorage.setItem('darkMode', value)
   }, [theme])
   
+  useEffect(() => {
+    localStorageSave('tasks', JSON.stringify(tasks))
+  },[tasks])
+
+
+  
   function setIndexId() {
-    return (tasks.length)
+    let max = 0
+    tasks.map((i) => {
+      i.id > max? max = i.id : max = max
+    }) 
+    return max + 1
   }
   function handleSetToggleTheme() {
     setTheme((current) => !current)
@@ -47,38 +57,30 @@ function App() {
     })
     
   }
-  function handleSetCompleted(id:number) {
-    const tasksUpdated = tasks
+  function handleSetCompleted(id:number, completed:boolean) {
+    const tasksUpdated = [...tasks]
     tasksUpdated.map((i) => {
-      i.id === id ? i.completed = !i.completed : i.completed
+      i.id === id ? i.completed = completed : i.completed = i.completed
     })
     setTasksValue(tasksUpdated)
     localStorageSave('tasks', JSON.stringify(tasksUpdated))
   }
   function handleDeleteTask(id:number) {
-    const tasksUpdated = tasks
+    const tasksUpdated = [...tasks]
     .filter((i) =>{
       return i.id !== id
-    }).map((i, index) => {
-      i.id = index
-      return i
     })
     setTasksValue(tasksUpdated)
-    localStorageSave('tasks', JSON.stringify(tasksUpdated))
   }
   function localStorageSave(key:string, value:string) {
     localStorage.setItem(key, value)
   }
 
-  useEffect(() => {
-    console.log(tasks)
-    localStorageSave('tasks', JSON.stringify(tasks))
-  },[tasks])
 
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
        <Background theme={theme}>
-        <Main>
+        <Main> 
           <>
             <Header handleSetToggleTheme={handleSetToggleTheme} theme={theme}/>
             <InputText setIndexId={setIndexId} maxLength={25} handleSetTasksValue={handleAddTasksValue} placeholder="Crie uma nova tarefa!"/>
