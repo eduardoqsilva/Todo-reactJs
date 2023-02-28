@@ -4,6 +4,7 @@ import { Background } from "./components/Background"
 import { Header } from "./components/Header"
 import { InputText } from "./components/InputText"
 import { Main } from "./components/Main"
+import { Status } from "./components/Status"
 import { Task } from "./components/Task"
 
 import { darkTheme } from "./styles/themes/dark"
@@ -75,7 +76,12 @@ function App() {
   function localStorageSave(key:string, value:string) {
     localStorage.setItem(key, value)
   }
-
+  function getNumberOfTasksCompletes() {
+    let value = [...tasks].filter((i) => {
+      return i.completed === true
+    })
+    return value.length
+  }
 
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
@@ -84,6 +90,7 @@ function App() {
           <>
             <Header handleSetToggleTheme={handleSetToggleTheme} theme={theme}/>
             <InputText setIndexId={setIndexId} maxLength={25} handleSetTasksValue={handleAddTasksValue} placeholder="Crie uma nova tarefa!"/>
+            <Status tasksCompleted={getNumberOfTasksCompletes()} tasksNumber={tasks.length}></Status>
             {
               tasks.map((i) => {
                 return (
